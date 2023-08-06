@@ -5,6 +5,7 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'lua_ls',
+    'eslint',
 
 })
 
@@ -50,7 +51,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gr", function()
         vim.lsp.buf.references()
     end, opts)
-    vim.keymap.set("n", "<leader>lar", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
