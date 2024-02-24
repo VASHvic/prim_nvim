@@ -8,7 +8,8 @@ lsp.ensure_installed({
   'angularls',
   'html',
   'cssls',
-  'jsonls'
+  'jsonls',
+  'eslint'
 
 })
 
