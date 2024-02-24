@@ -5,7 +5,10 @@ lsp.preset("recommended")
 lsp.ensure_installed({
     'tsserver',
     'lua_ls',
-    'eslint',
+    'angularls',
+    'html',
+    'cssls',
+    'jsonls'
 
 })
 
@@ -18,8 +21,7 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-l>"] = cmp.mapping.complete(),
 })
 
 cmp_mappings['<Tab>'] = nil
@@ -47,7 +49,7 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>.", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "gr", function()
         vim.lsp.buf.references()
     end, opts)
